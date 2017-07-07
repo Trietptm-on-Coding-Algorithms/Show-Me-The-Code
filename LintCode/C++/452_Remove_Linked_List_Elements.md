@@ -6,8 +6,11 @@
 ## 样例：
 给出链表 `1->2->3->3->4->5->3`, 和 `val = 3`, 你需要返回删除3之后的链表：`1->2->4->5`。
 
+## 标签
+链表
+
 ## 问题
-```
+```C++
 /**
  * Definition for singly-linked list.
  * struct ListNode {
