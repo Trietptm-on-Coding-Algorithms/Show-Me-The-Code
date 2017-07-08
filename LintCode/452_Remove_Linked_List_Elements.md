@@ -9,31 +9,37 @@
 ## 标签
 链表
 
-## 问题
-```Java
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-public class Solution {
-    /**
-     * @param head a ListNode
-     * @param val an integer
-     * @return a ListNode
-     */
-    public ListNode removeElements(ListNode head, int val) {
-        // Write your code here
-    }
-}
-```
-
 ## 分析
 
 ## 解答
+### Python
+```Python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    # @param head, a ListNode
+    # @param val, an integer
+    # @return a ListNode
+    def removeElements(self, head, val):
+        # Write your code
+        new_head = ListNode(-1)
+        new_head.next = head
+        cur = head
+        pre = new_head
+        while cur:
+            if cur.val == val:
+                pre.next = cur.next
+            else:
+                pre = pre.next
+            cur = cur.next
+        return new_head.next
+```
+
+### Java
 ```Java
 /**
  * Definition for singly-linked list.

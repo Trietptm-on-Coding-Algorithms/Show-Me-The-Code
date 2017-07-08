@@ -9,25 +9,10 @@
 ## 标签
 链表
 
-## 问题
-```Python
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution:
-    # @param l1: the first list
-    # @param l2: the second list
-    # @return: the sum list of l1 and l2
-    def addLists(self, l1, l2):
-        # write your code here
-```
-
 ## 分析
 
 ## 解答
+### Python
 ```Python
 # Definition for singly-linked list.
 # class ListNode:
@@ -93,4 +78,49 @@ class Solution:
         if n == 1:
             cur.next = ListNode(1)
         return new_head.next
+```
+
+### Java
+```Java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;      
+ *     }
+ * }
+ */
+public class Solution {
+    /**
+     * @param l1: the first list
+     * @param l2: the second list
+     * @return: the sum list of l1 and l2
+     */
+    public ListNode addLists(ListNode l1, ListNode l2) {
+        // write your code here
+        ListNode new_head = new ListNode(-1);
+        ListNode cur = new_head;
+        int n = 0;
+        while (l1 != null || l2 != null) {
+            if (l1 != null) {
+                n += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                n += l2.val;
+                l2 = l2.next;
+            }
+            cur.next = new ListNode(n % 10);
+            n = n / 10;
+            cur = cur.next;
+        }
+        if (n == 1) {
+            cur.next = new ListNode(1);
+        }
+        return new_head.next;
+    }
+}
 ```
